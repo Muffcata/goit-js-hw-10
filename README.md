@@ -1,5 +1,4 @@
-# goit-js-hw-10
-Country search engine  
+# Country search engine  
 
 JS Application:
 
