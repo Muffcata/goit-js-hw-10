@@ -18,7 +18,7 @@ const checkInput = input => {
   return false;
 };
 
-const placeChoice = elements => {
+const renderChoice = elements => {
   if (elements.length === 1) {
     const markup = elements
       .map(el => {
@@ -55,6 +55,6 @@ inputSearch.addEventListener(
   debounce(() => {
     let names = inputSearch.value.trim();
     if (checkInput(names)) return;
-    fetchCountries(names).then(elements => placeChoice(elements));
+    fetchCountries(names).then(elements => renderChoice(elements));
   }, DEBOUNCE_DELAY)
 );
