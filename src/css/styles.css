@@ -29,16 +29,12 @@ body {
   width: 250px;
 }
 .mini-img {
-  width: 200px;
-  display: flex;
+  width: 80px;
 }
 .mini-text {
-  padding-bottom: 20px;
   font-size: 15px;
   font-weight: 600;
-  text-align: center;
 }
 .country-list__item {
   display: flex;
-  flex-wrap: wrap;
 }
