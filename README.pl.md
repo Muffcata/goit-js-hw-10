@@ -1,1 +1,1 @@
-start project...in progress: HTTP, API..
+start project...in progress: HTTP, API, AJAX
