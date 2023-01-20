@@ -18,7 +18,27 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
-.country-list__text {
+.text {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  text-decoration: underline;
 }
-.country-list__img {
+.img {
+  display: flex;
+  width: 250px;
+}
+.mini-img {
+  width: 200px;
+  display: flex;
+}
+.mini-text {
+  padding-bottom: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+.country-list__item {
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -23,9 +23,9 @@ const placeChoice = elements => {
     const markup = elements
       .map(el => {
         return `<li>
-                <p class=""><img class="" src="${
+                <p class="text"><img class="img" src="${
                   el.flags.svg
-                }" alt="Country flag"> ${el.name.common} </p>
+                }" alt="Country flag"> ${el.name.official} </p>
                 <p> <b>Capital: </b> ${el.capital} </p>
                 <p> <b>Population: </b>${el.population} </p>
                 <p> <b>Languages: </b>${Object.values(el.languages)} </p>
@@ -37,8 +37,8 @@ const placeChoice = elements => {
   } else if (elements.length >= 2 && elements.length <= 10) {
     const markup = elements
       .map(el => {
-        return `<li class="">
-            <p class=""><<img class="" src="${el.flags.svg}" alt="Country flag"> ${el.name.common} </p>
+        return `<li class="country-list__item">
+            <p class="mini-text"><img class="mini-img" src="${el.flags.svg}" alt="Country flag"> ${el.name.official} </p>
             </li>`;
       })
       .join('');
