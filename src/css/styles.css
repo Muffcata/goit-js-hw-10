@@ -38,3 +38,13 @@ body {
 .country-list__item {
   display: flex;
 }
+body {
+  background-color: bisque;
+}
+
+input {
+  margin-top: 20px;
+}
+.tittle {
+  font-size: 20px;
+}
