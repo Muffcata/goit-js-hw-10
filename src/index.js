@@ -9,10 +9,14 @@ const countryInfo = document.querySelector('.country-info');
 
 const DEBOUNCE_DELAY = 300;
 
+const resetCountry = () => {
+  countryInfo.innerHTML = '';
+  countryList.innerHTML = '';
+};
+
 const checkInput = input => {
   if (input.trim() === '') {
-    countryInfo.innerHTML = '';
-    countryList.innerHTML = '';
+    resetCountry();
     return true;
   }
   return false;
@@ -31,23 +35,27 @@ const renderChoice = elements => {
                 <p> <b>Languages: </b>${Object.values(el.languages)} </p>
             </li>`;
       })
+
       .join('');
-    countryInfo.innerHTML = markup;
-    countryList.innerHTML = '';
+
+    countryList.innerHTML = markup;
   } else if (elements.length >= 2 && elements.length <= 10) {
+    resetCountry();
     const markup = elements
       .map(el => {
         return `<li class="country-list__item">
             <p class="mini-text"><img class="mini-img" src="${el.flags.svg}" alt="Country flag"> ${el.name.official} </p>
             </li>`;
       })
+
       .join('');
-    countryInfo.innerHTML = markup;
-    countryList.innerHTML = '';
-  } else if (elements.length > 10);
-  Notiflix.Notify.info(
-    'Too many matches found. Please enter a more specific name.'
-  );
+    countryList.innerHTML = markup;
+  } else if (elements.length > 10) {
+    Notiflix.Notify.info(
+      'Too many matches found. Please enter a more specific name.'
+    );
+    resetCountry();
+  }
 };
 
 inputSearch.addEventListener(
