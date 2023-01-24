@@ -14,14 +14,15 @@ const resetCountry = () => {
   countryList.innerHTML = '';
 };
 
-const checkInput = input => {
-  if (input.trim() === '') {
-    resetCountry();
-    return true;
-  }
-  return false;
+const checkInput = () => {
+  fetchCountries(inputSearch.value.trim())
+    .then(elements => {
+      renderChoice(elements);
+    })
+    .catch(error => {
+      Notiflix.Notify.failure('Oops, there is no country with that name');
+    });
 };
-
 const renderChoice = elements => {
   if (elements.length === 1) {
     const markup = elements
@@ -58,11 +59,4 @@ const renderChoice = elements => {
   }
 };
 
-inputSearch.addEventListener(
-  'input',
-  debounce(() => {
-    let names = inputSearch.value.trim();
-    if (checkInput(names)) return;
-    fetchCountries(names).then(elements => renderChoice(elements));
-  }, DEBOUNCE_DELAY)
-);
+inputSearch.addEventListener('input', debounce(checkInput, DEBOUNCE_DELAY));
